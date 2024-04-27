@@ -146,7 +146,7 @@ public class DNhap extends JFrame {
 		btnDangNhap.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String a = "abcde";
-				String b = "123456";
+				String b = "12345678";
 				
 				String log = login.getText();
 				String pas = new String( pass.getPassword());

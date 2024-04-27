@@ -1,4 +1,4 @@
-package QL_Muon_Sach;
+package QL_Muon_Sach_view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
