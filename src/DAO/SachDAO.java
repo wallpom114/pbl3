@@ -198,6 +198,52 @@ public class SachDAO implements DAOInterface<Sach> {
 	    }
 	    return result;
 	}
+	  public Sach seachBookId(ArrayList<Sach> listSach, String t) {
+		  	int a = Integer.parseInt(t);
+	    	if(a < 0) return null;
+	        for (Sach e : listSach) {
+	            if (e.get_id_sach() ==  a) {
+	                return e;
+	            }
+	        }
+	        return null;
+
+	    }
+		/*
+		 * public ArrayList<Sach> searchByAuthor(ArrayList<Sach> bookList, String
+		 * authorName) { ArrayList<Sach> searchResult = new ArrayList<>(); for (Sach
+		 * sach : bookList) { String[] fullName = sach.get_tacgia().split("\\s+");
+		 * String lastName = fullName[fullName.length - 1]; if
+		 * (lastName.toLowerCase().contains(authorName.toLowerCase())) {
+		 * searchResult.add(sach); } } return searchResult; }
+		 */
+	  public ArrayList<Sach> searchByAuthor(ArrayList<Sach> bookList, String authorName) {
+	      ArrayList<Sach> searchResult = new ArrayList<>();
+	      for (Sach book : bookList) {
+	          String[] fullName = book.get_tacgia().split("\\s+");
+	          boolean found = false;
+	          for (String namePart : fullName) {
+	              if (namePart.toLowerCase().contains(authorName.toLowerCase())) {
+	                  found = true;
+	                  break;
+	              }
+	          }
+	          if (found) {
+	              searchResult.add(book);
+	          }
+	      }
+	      return searchResult;
+	  }
+
+	  public ArrayList<Sach> searchByTitle(ArrayList<Sach> bookList, String title) {
+	      ArrayList<Sach> searchResult = new ArrayList<>();
+	      for (Sach book : bookList) {
+	          if (book.get_tensach().toLowerCase().contains(title.toLowerCase())) {
+	              searchResult.add(book);
+	          }
+	      }
+	      return searchResult;
+	  }
 
 
 }

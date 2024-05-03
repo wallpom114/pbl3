@@ -41,7 +41,7 @@ public class ThemSach extends JFrame {
 	private int ids;
 	private JComboBox comboBoxNhaXB,comboBoxTheLoai;
 	private JSpinner spinnerCount;
-
+	private ThemSach them = this;
 	/**
 	 * Launch the application.
 	 */
@@ -292,18 +292,21 @@ public class ThemSach extends JFrame {
 	btnThem.setBounds(731, 535, 105, 39);
 	contentPane.add(btnThem);
 	
-	JButton btnNewButton_1 = new JButton("Hủy");
-	btnNewButton_1.addActionListener(new ActionListener() {
+	JButton btnThoat = new JButton("Thoát");
+	btnThoat.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
 			int r = JOptionPane.showConfirmDialog(contentPane, "Bạn có chắc muốn thoát không?", "Thông Báo", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
 			if(r == JOptionPane.YES_OPTION)
-				System.exit(0);
+				them.setVisible(false);
+				QlySach ql =  new QlySach();
+				ql.setVisible(true);
+				ql.setLocationRelativeTo(null);
 		}
 	});
-	btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
-	btnNewButton_1.setBackground(new Color(250, 250, 250));
-	btnNewButton_1.setBounds(866, 535, 105, 39);
-	contentPane.add(btnNewButton_1);
+	btnThoat.setFont(new Font("Tahoma", Font.PLAIN, 18));
+	btnThoat.setBackground(new Color(250, 250, 250));
+	btnThoat.setBounds(866, 535, 105, 39);
+	contentPane.add(btnThoat);
 
 	}
 }

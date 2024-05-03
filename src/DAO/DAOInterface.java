@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import javax.sql.DataSource;
 
+import book_model.Sach;
+
 public interface DAOInterface<T> {
 	public int Insert(T t);
 	
@@ -22,5 +24,6 @@ public interface DAOInterface<T> {
     int PORT = 3306;
     String SERVER_NAME = "localhost";
 	DataSource ketNoiSQL();
+
 
 }

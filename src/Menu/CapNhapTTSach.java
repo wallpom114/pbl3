@@ -46,7 +46,7 @@ public class CapNhapTTSach extends JDialog {
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				try {
+				try {	
 					JFrame parent = new JFrame();
 					Sach sach = new Sach();
 					CapNhapTTSach frame = new CapNhapTTSach(parent,true,sach);
@@ -59,7 +59,7 @@ public class CapNhapTTSach extends JDialog {
 	}
 	
 	public CapNhapTTSach(JFrame parent, boolean modal, Sach sach)
-	{
+	{	
 		super(parent, modal);
 		   this.sach = sach;
 		    initComponents();
@@ -312,7 +312,13 @@ public class CapNhapTTSach extends JDialog {
 		                 
 		               JOptionPane.showMessageDialog(rootPane, "sửa thành công");
 		               dispose();
-		               qls.setVisible(true);
+		               QlySach ql = new QlySach(); ql.setVisible(true);
+		               ql.setLocationRelativeTo(null);
+							 
+		               //qls.setVisible(true);
+		               //qls.setLocationRelativeTo(null);
+		               
+		               
 		            }  catch (InValidAuthorException ex) {
 		               JOptionPane.showMessageDialog(rootPane, "tên không hợp lệ");
 		            }
@@ -329,6 +335,18 @@ public class CapNhapTTSach extends JDialog {
 		    contentPane.add(btnUpdate);
 		    
 		    JButton btnExit = new JButton("Thoát");
+		    btnExit.addActionListener(new ActionListener() {
+		    	public void actionPerformed(ActionEvent e) {
+		    		int result = JOptionPane.showConfirmDialog(contentPane, "Bạn có chắc muốn thoát không","Thông Báo",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+		    		if(result ==  JOptionPane.YES_OPTION)
+		    		{
+		    			dispose();
+		    			QlySach ql = new QlySach();
+			            ql.setVisible(true);
+			            ql.setLocationRelativeTo(null);
+		    		}
+		    	}
+		    });
 		    btnExit.setBounds(814, 563, 85, 21);
 		    contentPane.add(btnExit);
 		

@@ -35,7 +35,6 @@ public class DNhap extends JFrame {
 	private boolean isVisible = false;
 	private char defaultEchoChar = '\u2022'; // '*' character
 	private JFrame DN = this;
-
 	/**
 	 * Launch the application.
 	 */

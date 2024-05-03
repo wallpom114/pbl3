@@ -34,7 +34,7 @@ public class XemTTSach extends JDialog {
 	private jT txtSoLuongSach;
 	private Sach sach;
 	private jT txtTheLoai;
-
+	//private QlySach qlsach ;
 	/**
 	 * Launch the application.
 	 */
